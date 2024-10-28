@@ -1,0 +1,23 @@
+[
+    {
+        "name" : "Savings & Cost avoidance",
+        "rating" : 4,
+        "price" : 90000,
+        "color": "DC840A",
+        "ImageUrl" : "savingAndCost"
+    },
+    {
+        "name" : "Code of Conduct",
+        "rating" : 4,
+        "price" : 90000,
+        "color": "1A364C",
+        "ImageUrl" : "codeOfConduct"
+    },
+    {
+        "name" : "ESG measurement",
+        "rating" : 4,
+        "price" : 90000,
+        "color": "009760",
+        "ImageUrl" : "EsgMeasurement"
+    }
+]
