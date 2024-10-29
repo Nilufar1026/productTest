@@ -3,14 +3,34 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Header from "./components/header/Header";
-import Product from "./components/product/Product";
-
+import { AxiosResponse } from "axios";
+import { useState, useEffect } from "react";
+import { IProduct } from "./type";
+import * as API from './api/api'
+import Card from "./components/productCard/Card"
 
 export default function Home() {
+  const [products, setProducts] = useState<IProduct[]>([])
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const result:AxiosResponse<IProduct[]> = await API.getProducts();
+        setProducts(result.data );
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, [])
+  console.log("hello",products)
   return (
     <div className={styles.page}>
         <Header />
-     <Product />
+     {products && products.length>0 && products.map((product)=>(
+      <Card src={product.ImageUrl} name={product.name} key={product.id}/>
+     ))}
       <footer className={styles.footer}>
         <a
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
