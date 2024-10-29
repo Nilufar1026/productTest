@@ -14,9 +14,10 @@ app.use(express.urlencoded({extended: true}));
 // Routes
 app.use("/", routes.client);
 app.use("/api/products", routes.products);
+
 app.use("/api/orders", routes.orders);
 app.use("/api", routes.auth);
 app.use(_404);
 
-const PORT = 3000;
+const PORT = 8000;
 app.listen(PORT, () => console.log(`Server started at port ${PORT}`));

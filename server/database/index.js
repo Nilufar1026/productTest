@@ -20,8 +20,8 @@ const usersSeed = require("./usersSeed.json");
 
 const seedDatabase = async () => {
   await orders.remove({}, {multi: true});
-  //   await users.remove({}, {multi: true});
-  //   await products.remove({}, {multi: true});
+    await users.remove({}, {multi: true});
+    await products.remove({}, {multi: true});
   await users.insert(usersSeed);
   await products.insert(productsSeed);
 };
