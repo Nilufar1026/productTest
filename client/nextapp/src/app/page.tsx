@@ -30,7 +30,6 @@ export default function Home() {
   const addToCard = (product: IProduct) => {
     setOrders([...orders, product]);
   };
-  console.log("#€", showModal);
   return (
     <>
       {showModal ? (
