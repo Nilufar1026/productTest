@@ -1,2 +1,6 @@
-{"email":"admin@example.com","name":"Johan Kivi","role":"admin","address":{"street":"Tokitokvägen 3","zip":"123 45","city":"Tokberga"},"orderHistory":[],"_id":"rwdtc9YCIXF0eCaA"}
-{"email":"customer@example.com","name":"David Lundholm","role":"customer","address":{"street":"Tokitokvägen 4","zip":"123 46","city":"Tokbergaskogen"},"orderHistory":[],"_id":"XMG3NUbDCEpN3AxT"}
+{"email":"admin@example.com","name":"Johan Kivi","role":"admin","address":{"street":"Tokitokvägen 3","zip":"123 45","city":"Tokberga"},"orderHistory":[],"_id":"59QdwHjDpeTqmzgi"}
+{"email":"customer@example.com","name":"David Lundholm","role":"customer","address":{"street":"Tokitokvägen 4","zip":"123 46","city":"Tokbergaskogen"},"orderHistory":[],"_id":"Lz29ZjqWNmpIqZ65"}
+{"$$deleted":true,"_id":"59QdwHjDpeTqmzgi"}
+{"$$deleted":true,"_id":"Lz29ZjqWNmpIqZ65"}
+{"email":"admin@example.com","name":"Johan Kivi","role":"admin","address":{"street":"Tokitokvägen 3","zip":"123 45","city":"Tokberga"},"orderHistory":[],"_id":"MBcCZntNjtokvM58"}
+{"email":"customer@example.com","name":"David Lundholm","role":"customer","address":{"street":"Tokitokvägen 4","zip":"123 46","city":"Tokbergaskogen"},"orderHistory":[],"_id":"9f8QxCLZXnnGfajG"}
