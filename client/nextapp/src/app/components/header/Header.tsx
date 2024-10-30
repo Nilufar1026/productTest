@@ -16,9 +16,9 @@ const HeaderSection = styled.div<HeaderProps>`
   align-items: center;
   justify-content: space-between;
 
-  .userSection{
-    .user{
-        margin-right: 0.5rem;
+  .userSection {
+    .user {
+      margin-right: 0.5rem;
     }
   }
 `;
@@ -27,13 +27,17 @@ const Header: React.FC<HeaderProps> = (props) => {
   return (
     <HeaderSection>
       <div className="logo">
-        <Image src={logo} alt="logo" height={30}/>
+        <Image src={logo} alt="logo" height={30} />
       </div>
       <div className="userSection">
-        <Image src={user} alt="user" className="user"/>
-        <Image src={cart} alt="cart"/>
+        <Image src={user} alt="user" className="user" />
+        <div>
+          <Image src={cart} alt="cart" />
+          <div className="cartNumber">
+            {/* <span>{props.cartNumber}</span> */}
+          </div>
+        </div>
       </div>
-    
     </HeaderSection>
   );
 };

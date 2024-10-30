@@ -1,80 +1,65 @@
-'use client'
+"use client";
 
-import Image from "next/image";
-import styles from "./page.module.css";
 import Header from "./components/header/Header";
-import { AxiosResponse } from "axios";
-import { useState, useEffect } from "react";
-import { IProduct } from "./type";
-import * as API from './api/api'
-import Card from "./components/productCard/Card"
+import {AxiosResponse} from "axios";
+import {useState, useEffect} from "react";
+import {IProduct} from "./type";
+import * as API from "./api/api";
+import Card from "./components/productCard/Card";
+import styled from "styled-components";
 
 export default function Home() {
-  const [products, setProducts] = useState<IProduct[]>([])
+  const [products, setProducts] = useState<IProduct[]>([]);
+  const [selectedProduct, setSelectedProduct] = useState<IProduct>();
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const result:AxiosResponse<IProduct[]> = await API.getProducts();
-        setProducts(result.data );
+        const result: AxiosResponse<IProduct[]> = await API.getProducts();
+        setProducts(result.data);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
     };
 
     fetchProducts();
-  }, [])
-  console.log("hello",products)
+  }, []);
+
+  console.log("sele", selectedProduct);
   return (
-    <div className={styles.page}>
-        <Header />
-     {products && products.length>0 && products.map((product)=>(
-      <Card src={product.ImageUrl} name={product.name} key={product.id}/>
-     ))}
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <HomePage>
+      <Header />
+      <div className="cards">
+        {products &&
+          products.length > 0 &&
+          products.map((product, index) => (
+            <Card
+              src={product.ImageUrl}
+              name={product.name}
+              key={product.id || index}
+              $color={product.color}
+              rating={product.rating}
+              price={product.price}
+              onClick={() => {
+                setSelectedProduct(product);
+              }}
+            />
+          ))}
+      </div>
+    </HomePage>
   );
 }
+
+const HomePage = styled.div`
+  width: 100%;
+  background-color: #f9ffff;
+  padding: 9rem 20rem;
+
+  .cards {
+    width: 100%;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-around;
+    gap: 3rem;
+  }
+`;
